@@ -50,14 +50,13 @@
         <!--金額-->
         <span class="col-2 h4 text-info">{{this.amount}}</span>
         <!--操作-->
-        <div class="col-3 ml-5 content-around">
-          <div class="d-flex justify-content-around">
-            <a class="btn btn-warning" href="#">detail</a>
-            <a class="btn btn-success" href="#">edit</a>
-            <form action="#">
-              <button class="btn btn-danger" type="submit">delete</button>
-            </form>
-          </div>
+      <div class="d-flex col-2 justify-content-around">
+          <form action="/records/{{ this._id }}/edit">
+            <button class="btn btn-success" type="submit">edit</button>
+          </form>
+          <form action="/records/{{ this._id }}/delete">
+            <button class="btn btn-danger" type="submit">delete</button>
+          </form>
         </div>
       </div>
     </li>
