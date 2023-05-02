@@ -1,2 +1,71 @@
-
-
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <!-- totalAmount -->
+      <div class="d-flex justify-content-center">
+        <p class="lead">總金額</p>
+      </div>
+      <div class="d-flex justify-content-center">
+        <h1 class="display-1 text-info">price</h1>
+      </div>
+    </div>
+    <div class="col">
+      {{!-- filter --}}
+      <form action="#" method="POST">
+        <div>
+          <select class="form-select-lg form-select" id="filter" name="filter" onchange="this.form.submit()">
+            {{#if categoryName}}
+            <option value="{{categoryId}}" hidden="hidden" selected="selected">{{categoryName}}</option>
+            {{/if}}
+            <option value="all">全部</option>
+            {{#each categories}}
+            <option value="{{ this._id }}">{{ this.name }}</option>
+            {{/each}}
+          </select>
+        </div>
+      </form>
+    </div>
+  </div>
+  {{!-- records --}}
+  <!-- 項目list -->
+  <ul class="list-group">
+    <li class="list-group-item">
+      <div class="row">
+        <span class="col-1">類別</span>
+        <span class="col-4">項目</span>
+        <span class="col-2">日期</span>
+        <span class="col-3">金額</span>
+        <span class="col-2">操作</span>
+      </div>
+    </li>
+    {{#each records}}
+    <li class="list-group-item">
+      <div class="row">
+        <!--類別icon-->
+        <span class="col-1">{{ this.categoryId }}</span>
+        <!--項目-->
+        <span class="col-2 lead">{{ this.name }}</span>
+        <!--日期-->
+        <span class="col-4" id="date">{{this.date}}</span>
+        <!--金額-->
+        <span class="col-2 h4 text-info">{{this.amount}}</span>
+        <!--操作-->
+        <div class="col-3 ml-5 content-around">
+          <div class="d-flex justify-content-around">
+            <a class="btn btn-warning" href="#">detail</a>
+            <a class="btn btn-success" href="#">edit</a>
+            <form action="#">
+              <button class="btn btn-danger" type="submit">delete</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </li>
+    {{/each}}
+  </ul>
+  <div class="mt-3" style="display : flex; justify-content: center;">
+    <a href="#">
+      <button type="button" class="btn btn-major btn-lg ">新增支出</button>
+    </a>
+  </div>
+</div>

@@ -19,6 +19,6 @@ db.once('open', async() => {
   console.log('running recordSeeder...')
   await Record.create(expenseRecord)
   await Category.create(categoryList)
-  console.log("restaurantSeeder done!")
+  console.log("recordSeeder done!")
   db.close()
 })

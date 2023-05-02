@@ -38,5 +38,8 @@ app.listen(PORT, () => {
 
 //測試首頁
 app.get('/', (req, res) => {
-  res.render('index')
+  Record.find()
+  .lean()
+  .then(records => res.render('index', {records}))
+  .catch(err => console.log(err))
 })
