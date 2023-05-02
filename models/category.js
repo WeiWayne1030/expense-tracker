@@ -3,7 +3,11 @@
 const Schema = mongoose.Schema
 const categorySchema = new Schema ({
   categoryId: {
-    type: Number,
+    type: String,
+    required: true
+  },
+  name: {
+    type:String,
     required: true
   }
 })
