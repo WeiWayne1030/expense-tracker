@@ -1,21 +1,21 @@
 [
-  { "categoryId": 1,
+  { 
     "categoryName": "家居物業",
     "icon": "https://fontawesome.com/icons/home?style=solid"
   },
-  { "categoryId": 2,
+  { 
     "categoryName": "交通出行",
     "icon": "https://fontawesome.com/icons/shuttle-van?style=solid"
   },
-  { "categoryId": 3,
+  { 
     "categoryName": "休閒娛樂",
     "icon": "https://fontawesome.com/icons/grin-beam?style=solid"
   },
-  { "categoryId": 4,
+  { 
     "categoryName": "餐飲食品",
     "icon": "https://fontawesome.com/icons/utensils?style=solid"
   },
-  { "categoryId": 5,
+  {
     "categoryName": "其他",
     "icon": "https://fontawesome.com/icons/pen?style=solid"
   }
