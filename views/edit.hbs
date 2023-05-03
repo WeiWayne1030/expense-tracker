@@ -1,6 +1,6 @@
 <h1 class="mb-1 record-show-title d-flex justify-content-center">修改支出</h1>
 <div class="container">
-  <form action="/records/{{record._id}}/edit" method="POST">
+  <form action="/records/{{record._id}}/?_method=PUT" method="POST">
     <div class="mb-3">
       {{! 使用datalist，讓使用者可選擇或自行輸入 }}
       <label for="category" class="form-label" maxlength="20">類別<span class="text-danger">*</span></label>
