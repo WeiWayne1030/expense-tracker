@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const db = require('../../../config/mongoose')
 const Record = require('../../record')
 const Category=require('../../category')
 const expenseRecord = require("../json/expense.json")
@@ -8,17 +8,14 @@ if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
 
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-
-const db = mongoose.connection
-
 db.on('error', () => {
   console.log('mongodb error!')
 })
 db.once('open', async() => {
   console.log('running recordSeeder...')
   await Record.create(expenseRecord)
-  await Category.create(categoryList)
   console.log("recordSeeder done!")
+  await Category.create(categoryList)
+  console.log("categorySeeder done")
   db.close()
 })
