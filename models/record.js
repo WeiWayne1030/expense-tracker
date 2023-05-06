@@ -15,9 +15,6 @@ const recordSchema = new Schema ({
   { type: Number,
     required: true 
   },
-  icon: {
-    type: String
-  },
   categoryId: {
     type: Schema.Types.ObjectId,
     ref: 'Category',

@@ -29,6 +29,8 @@ router.get('/:id/edit', async (req, res) => {
   const userId = req.user._id
   try{
     const record = await Record.findOne({ _id, userId }).populate('categoryId').lean()
+    //修改日期
+    record.date = record.date.toLocaleDateString('zu-Za')
     res.render('edit', { record })
   //如果沒有資料
   if (!record) {
@@ -48,7 +50,6 @@ router.put('/:id', async (req, res) =>{
     // 把categoryId取出來
     const categories = await Category.find({}).lean()
     const currentCategory =  categories.find(category => category.categoryName === editData.category)
-    console.log(editData.category)
     editData.categoryId = currentCategory._id
     
     // 上傳資料

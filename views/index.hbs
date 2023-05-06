@@ -14,13 +14,21 @@
   {{!-- filter --}}
   <div class="d-flex justify-content-end">
       <form action="/filter" method="GET">
-        <select class="form-select mb-3 " aria-label=".form-filterSelect" name="filterSelect"
-          onchange="submit()">
-          <option value="" selected disabled>類別</option>
-          {{#each categories}}
-          <option {{#if this.isSelected}} selected {{/if}} value="{{ this.categoryName }}">{{ this.categoryName }}</option>
-          {{/each}}
-        </select>
+        <select class="form-select col" id="categoryId" name="categoryId" >
+          <option selected disabled hidden>類別</option>
+          <option href="/all">全部</option>
+          <option href="/search?sortBy=家居物業">家居物業</option>
+          <option href="/search?sortBy=交通出行">交通出行</option>
+          <option href="/search?sortBy=休閒娛樂">休閒娛樂</option>
+          <option href="/search?sortBy=餐飲食品">餐飲食品</option>
+          <option href="/search?sortBy=其他">其他</option>
+      {{!-- <select class="form-select col" id="categoryId" name="categoryId" onchange="this.form.submit()">
+        <option selected disabled hidden>類別</option>
+        <option value="all">全部</option>
+        {{#each categories}}
+        <option value="{{this._id}}" name="{{this._id}}">{{this.categoryName}}</option>
+        {{/each}} --}}
+      </select>
       </form>
     <div class="d-flex justify-content-end ms-2">
       <a href="./records/new">

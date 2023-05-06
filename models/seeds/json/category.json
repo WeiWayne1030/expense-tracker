@@ -1,22 +1,22 @@
 [
   { 
     "categoryName": "家居物業",
-    "icon": "https://fontawesome.com/icons/home?style=solid"
+    "icon": "fa-house fa-solid"
   },
   { 
     "categoryName": "交通出行",
-    "icon": "https://fontawesome.com/icons/shuttle-van?style=solid"
+    "icon": "fa-shuttle-van fa-solid"
   },
   { 
     "categoryName": "休閒娛樂",
-    "icon": "https://fontawesome.com/icons/grin-beam?style=solid"
+    "icon": "fa-grin-beam fa-solid"
   },
   { 
     "categoryName": "餐飲食品",
-    "icon": "https://fontawesome.com/icons/utensils?style=solid"
+    "icon": "fa-utensils fa-solid"
   },
   {
     "categoryName": "其他",
-    "icon": "https://fontawesome.com/icons/pen?style=solid"
+    "icon": "fa-pen fa-solid"
   }
 ]
