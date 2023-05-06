@@ -11,6 +11,7 @@ router.get ('/new', async (req, res) => {
 router.post('/', async (req, res) => {
   const userId = req.user._id
   const record= req.body
+  console.log(record)
   //先把 category資料取出來
   const categories = await Category.find({}).lean()
   const referenceCategory = categories.find(category => category.name === record.categoryId)
@@ -20,7 +21,6 @@ router.post('/', async (req, res) => {
   //在Record創建新的資料
   await Record.create({ ...record, userId })
   res.redirect('/')
-
 })
 
 //修改支出

@@ -13,15 +13,15 @@
 
   {{!-- filter --}}
   <div class="d-flex justify-content-end">
-      <form action="/filter" method="GET">
-        <select class="form-select col" id="categoryId" name="categoryId" >
+      <form action="/filter" method="POST">
+        <select class="form-select col" id="categoryId" name="categoryId" onchange="this.form.submit()" >
           <option selected disabled hidden>類別</option>
-          <option href="/all">全部</option>
-          <option href="/search?sortBy=家居物業">家居物業</option>
-          <option href="/search?sortBy=交通出行">交通出行</option>
-          <option href="/search?sortBy=休閒娛樂">休閒娛樂</option>
-          <option href="/search?sortBy=餐飲食品">餐飲食品</option>
-          <option href="/search?sortBy=其他">其他</option>
+          <option name="all" id ='all'>全部</option>
+          <option name="家居物業">家居物業</option>
+          <option name="交通出行">交通出行</option>
+          <option name="休閒娛樂">休閒娛樂</option>
+          <option name="餐飲食品">餐飲食品</option>
+          <option name="其他">其他</option>
       {{!-- <select class="form-select col" id="categoryId" name="categoryId" onchange="this.form.submit()">
         <option selected disabled hidden>類別</option>
         <option value="all">全部</option>
