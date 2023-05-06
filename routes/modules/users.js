@@ -28,7 +28,7 @@ router.get('/register', (req, res) => {
   res.render('register')
 })
 
-router.post('/register', (req, res) => {
+router.post('/register', async (req, res) => {
   //輸入參數
   const {name, email, password, confirmPassword } = req.body
   const errors = []
@@ -48,7 +48,8 @@ router.post('/register', (req, res) => {
       confirmPassword
     })
   }
-  User.findOne({ email }).then(user => {
+  try{
+    const user = await User.findOne({ email })
     //重新導向登入頁
     if(user) {
       errors.push({ message: '這個 Email 已經註冊過了。' })
@@ -59,19 +60,18 @@ router.post('/register', (req, res) => {
         password,
         confirmPassword
       })
-    } 
-    return bcrypt
-        .genSalt(10)
-        .then(salt => bcrypt.hash(password, salt))
-        .then(hash => User.create({
-          name,
-          email,
-          password: hash
-        }))
-        .then(() => res.redirect('/'))
-        .catch(err => console.log(err))
-  })
+    }
+    const salt = await bcrypt.genSalt(10)
+    const hash = await bcrypt.hash(password, salt)
+    const newUser = await User.create({
+        name,
+        email,
+        password: hash
+      })
+    res.redirect('/')
+  } catch(err) { console.log(err) }
 })
+
 router.get('/logout', (req, res) => {
   req.logout()
   req.flash('success_msg', '你已成功登出')

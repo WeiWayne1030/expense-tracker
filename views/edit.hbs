@@ -2,17 +2,16 @@
 <div class="container">
   <form action="/records/{{record._id}}/?_method=PUT" method="POST">
     <div class="mb-3">
-      {{! 使用datalist，讓使用者可選擇或自行輸入 }}
       <label for="category" class="form-label" maxlength="20">類別<span class="text-danger">*</span></label>
-      <input type="text" class="form-control" id="category" placeholder="家居物業" list="categoryOptions" name="category"
-        maxlength="20" value="{{ record.category }}" required />
-      <datalist id="categoryOptions">
+      {{!-- <input type="text" class="form-control" id="category" placeholder="category" list="categoryOptions" name="category"
+        maxlength="20" value="{{ record.categoryId.categoryName }}" required /> --}}
+      <select name="category" id="categoryOptions" class="form-control" value="{{ record.categoryId.categoryName }}" >
         <option>家居物業</option>
         <option>交通出行</option>
         <option>休閒娛樂</option>
         <option>餐飲食品</option>
         <option>其他</option>
-      </datalist>
+      </select>
     </div>
     <div class="mb-3">
       <label for="name" class="form-label">項目<span class="text-danger">*</span></label>

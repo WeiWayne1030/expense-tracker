@@ -6,23 +6,22 @@
         <p class="lead">總金額</p>
       </div>
       <div class="d-flex justify-content-center">
-        <h1 class="display-1 text-info">price</h1>
+        <h1 class="display-1 text-info">${{ totalAmount }}</h1>
       </div>
     </div>
   </div>
-      {{!-- filter --}}
+
+  {{!-- filter --}}
   <div class="d-flex justify-content-end">
-    <form action="#" method="POST">
-      <select class="form-select" id="filter" name="filter" onchange="this.form.submit()">
-        {{#if categoryName}}
-        <option value="{{categoryId}}" hidden="hidden" selected="selected">{{categoryName}}</option>
-        {{/if}}
-        <option value="all">全部</option>
-        {{#each categories}}
-        <option value="{{ this._id }}">{{ this.name }}</option>
-        {{/each}}
-      </select>
-    </form>
+      <form action="/filter" method="GET">
+        <select class="form-select mb-3 " aria-label=".form-filterSelect" name="filterSelect"
+          onchange="submit()">
+          <option value="" selected disabled>類別</option>
+          {{#each categories}}
+          <option {{#if this.isSelected}} selected {{/if}} value="{{ this.categoryName }}">{{ this.categoryName }}</option>
+          {{/each}}
+        </select>
+      </form>
     <div class="d-flex justify-content-end ms-2">
       <a href="./records/new">
         <button type="button" class="btn btn-major">新增支出</button>
@@ -34,30 +33,30 @@
   <ul class="list-group">
     <li class="list-group-item">
       <div class="row">
-        <span class="col-1">類別</span>
-        <span class="col-4">項目</span>
-        <span class="col-2">日期</span>
+        <span class="col-2">類別</span>
+        <span class="col-3">項目</span>
+        <span class="col-3">日期</span>
         <span class="col-3">金額</span>
-        <span class="col-2">操作</span>
+        <span class="col-1">操作</span>
       </div>
     </li>
     {{#each records}}
     <li class="list-group-item">
       <div class="row">
         <!--類別icon-->
-        <span class="col-1">{{ this.categoryId }}</span>
+        <span class="icon col-2"><i class="{{this.categoryId.icon}} h5"></i></span>
         <!--項目-->
-        <span class="col-2 lead">{{ this.name }}</span>
+        <span class="col-3 lead">{{ this.name }}</span>
         <!--日期-->
-        <span class="col-4" id="date">{{this.date}}</span>
+        <span class="col-3" id="date">{{this.date}}</span>
         <!--金額-->
         <span class="col-2 h4 text-info">{{this.amount}}</span>
         <!--操作-->
-      <div class="d-flex col-2 justify-content-around">
+      <div class="d-flex col-2 justify-content-end">
           <form action="/records/{{ this._id }}/edit">
             <button class="btn btn-success" type="submit">edit</button>
           </form>
-          <form action="/records/{{ this._id }}/delete">
+          <form action="/records/{{this._id}}/?_method=DELETE" method="POST">
             <button class="btn btn-danger" type="submit">delete</button>
           </form>
         </div>
