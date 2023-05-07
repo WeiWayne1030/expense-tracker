@@ -1,8 +1,10 @@
-# expense-tracker
-
 # A3 : 媽媽的記帳本 (AC 3 A3)
 
 ## Screenshot - 畫面截圖
+https://github.com/WeiWayne1030/expense-tracker/blob/efd5cfb2807e271d2ac8fbc77f8545836c9659b7/public/img/expenseLogin.png
+https://github.com/WeiWayne1030/expense-tracker/blob/efd5cfb2807e271d2ac8fbc77f8545836c9659b7/public/img/expanseIndex.png
+https://github.com/WeiWayne1030/expense-tracker/blob/efd5cfb2807e271d2ac8fbc77f8545836c9659b7/public/img/expanseEdit.png
+https://github.com/WeiWayne1030/expense-tracker/blob/efd5cfb2807e271d2ac8fbc77f8545836c9659b7/public/img/expenseNew.png
 
 ## About - 介紹
 
